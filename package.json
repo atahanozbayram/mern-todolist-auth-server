@@ -1,0 +1,32 @@
+{
+	"name": "mern-todolist-authserver",
+	"version": "1.0.0",
+	"description": "Authentication server for mern-todolist app",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/atahanozbayram/mern-todolist-auth-server.git"
+	},
+	"author": "Atahan Ozbayram",
+	"license": "UNLICENSED",
+	"bugs": {
+		"url": "https://github.com/atahanozbayram/mern-todolist-auth-server/issues"
+	},
+	"homepage": "https://github.com/atahanozbayram/mern-todolist-auth-server#readme",
+	"dependencies": {
+		"bcrypt": "^5.0.0",
+		"body-parser": "^1.19.0",
+		"express": "^4.17.1",
+		"express-validator": "^6.9.0",
+		"jsonwebtoken": "^8.5.1",
+		"module-alias": "^2.2.2",
+		"mongoose": "^5.11.9",
+		"mongoose-unique-validator": "^2.0.3"
+	},
+	"_moduleAliases": {
+		"@root": "."
+	}
+}
