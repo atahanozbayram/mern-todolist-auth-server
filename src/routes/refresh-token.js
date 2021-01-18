@@ -6,7 +6,7 @@ const refreshRoute = express.Router();
 const { check, validationResult } = require('express-validator');
 const connection = require('@root/db-connection');
 const UserSchema = require('@root/src/schemas/user.schema');
-const RefreshTokenSchema = require('../../schemas/refresh-token.schema');
+const RefreshTokenSchema = require('@root/src/schemas/refresh-token.schema');
 const mongoose = require('mongoose');
 
 async function main() {
