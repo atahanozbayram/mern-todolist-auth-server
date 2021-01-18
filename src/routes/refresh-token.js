@@ -7,6 +7,7 @@ const connection = require('@root/db-connection');
 const UserSchema = require('@root/src/schemas/user.schema');
 const RefreshTokenSchema = require('@root/src/schemas/refresh-token.schema');
 const mongoose = require('mongoose');
+const errorMsgTemp = require('./error');
 
 const routes = function () {
 	const refreshRoute = express.Router();
@@ -127,7 +128,9 @@ const routes = function () {
 			// if any error happens log it, then send response with status code 500
 			if (err) {
 				console.error(err);
-				res.status(500).send('Error happend inside the server.');
+				res
+					.status(500)
+					.json({ errors: { msg: errorMsgTemp.general.serverSideError() } });
 				return;
 			}
 
@@ -174,7 +177,7 @@ const routes = function () {
 				RefreshTokenModel.findOne({ token: token }, function (err, tokenInDB) {
 					if (err) {
 						res.status(500).json({
-							errors: [{ msg: 'Something error occured inside the server.' }],
+							errors: [{ msg: errorMsgTemp.general.serverSideError() }],
 						});
 						return;
 					}
@@ -201,7 +204,7 @@ const routes = function () {
 								// if error occurs send response with status 500
 								if (err) {
 									res.status(500).json({
-										errors: [{ msg: 'Some error occured inside the server.' }],
+										errors: [{ msg: errorMsgTemp.general.serverSideError() }],
 									});
 									return;
 								}
