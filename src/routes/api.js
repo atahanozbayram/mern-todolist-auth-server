@@ -2,5 +2,7 @@ const express = require('express');
 const route = express.Router();
 const refreshRoute = require('./refresh-token');
 
-route.use('/refreshToken', refreshRoute);
+const configuredRefreshTokenRoute = refreshRoute();
+
+route.use('/refreshToken', configuredRefreshTokenRoute);
 module.exports = route;

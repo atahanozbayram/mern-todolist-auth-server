@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const errorMsgTemp = require('./error');
 
 const routes = function () {
-	const refreshRoute = express.Router();
+	const refreshTokenRoute = express.Router();
 	const validations = {};
 	const exp = {};
 
@@ -242,12 +242,15 @@ const routes = function () {
 	};
 
 	// create new refresh token
-	refreshRoute.post('/request', validations.request, exp.request);
+	refreshTokenRoute.post('/request', validations.request, exp.request);
 
 	// check for validity of the refresh token.
-	refreshRoute.get('/validate', validations.validate, exp.validate);
+	refreshTokenRoute.get('/validate', validations.validate, exp.validate);
 
 	// delete one or all refresh tokens for given user, or token itself.
-	refreshRoute.delete('/delete', validations.delete, exp.delete);
+	refreshTokenRoute.delete('/delete', validations.delete, exp.delete);
+
+	return refreshTokenRoute;
 };
-module.exports = refreshRoute;
+
+module.exports = routes;
