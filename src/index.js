@@ -6,14 +6,6 @@ const bodyParser = require('body-parser');
 const apiRoute = require('./routes/api');
 
 async function main() {
-	const connection = mongoose
-		.createConnection('mongodb://localhost:27017', {
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-			useCreateIndex: true,
-		})
-		.catch(console.error);
-
 	const app = express();
 	app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(bodyParser.json());
