@@ -10,7 +10,7 @@ async function main() {
 	app.use(bodyParser.json());
 	app.use('/api', apiRoute);
 
-	const port = process.env.AUTH_SERVER_PORT || 5000;
+	const port = process.env.PORT || 5000;
 	app.listen(port, () => {
 		console.log('auth server started to listen on port %d', port);
 	});
