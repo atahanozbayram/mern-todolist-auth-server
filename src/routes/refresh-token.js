@@ -84,7 +84,13 @@ const routes = function () {
 			// generate newrefresh token, save it into database, and send it back to the client.
 
 			const token = jwt.sign(
-				{ email: email, date: Date.now(), user_id: user._id },
+				{
+					email: email,
+					date: Date.now(),
+					user_id: user._id,
+					firstName: user.firstName,
+					lastName: user.lastName,
+				},
 				process.env.REFRESH_TOKEN_SECRET,
 				{ algorithm: 'HS256' }
 			);
