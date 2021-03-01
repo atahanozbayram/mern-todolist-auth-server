@@ -4,6 +4,7 @@
 	"description": "Authentication server for mern-todolist app",
 	"main": "src/index.js",
 	"scripts": {
+		"start": "node .",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
